@@ -1,5 +1,4 @@
 export default class Building {
-    _sqft;
 
     constructor(sqft) {
         if (typeof sqft !== 'number') {
@@ -10,13 +9,6 @@ export default class Building {
 
     get sqft() {
         return this._sqft;
-    }
-
-    set sqft(sqft) {
-        if (typeof sqft !== 'number') {
-            throw new TypeError('Square feet must be a number');
-        }
-        this._sqft = sqft;
     }
 
     evacuationWarningMessage() {

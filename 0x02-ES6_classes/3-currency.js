@@ -1,6 +1,4 @@
 export default class Currency {
-    _code;
-    _name;
 
     constructor(code, name) {
         if (typeof code !== 'string') {
