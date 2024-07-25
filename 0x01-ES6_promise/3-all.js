@@ -1,15 +1,13 @@
-/**
- * Attaches handlers to a given promise to handle resolution, rejection, and logging.
- * @param {Promise} promise
- * @returns {Promise}
- */
-import { uploadPhoto, createUser } from "./utils.js"
+import { uploadPhoto, createUser } from './utils';
 
-export default async function handleProfileSignup(){
-  try{
+/**
+ * Simulate a signup process
+ */
+export default async function handleProfileSignup() {
+  try {
     const values = await Promise.all([uploadPhoto(), createUser()]);
-    console.log(values);
-  }catch(err){
-    console.log('Signup service failed', err);
+    console.log(`${values[0].body} ${values[1].firstName} ${values[1].lastName}`);
+  } catch (error) {
+    console.log('Signup system offline');
   }
 }
