@@ -1,12 +1,15 @@
 #!/usr/bin/env node
 
-const readline = require('node:readline');
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+const getUsename = function () {
+  process.stdout.write('Welcome to Holberton School, what is your name?\n');
+  process.stdin.on('data', (name) => {
+    process.stdout.write(`Your name is: ${name}`);
 
-rl.question('Welcome to Holberton School, what is your name?\n', name => {
-  console.log(`Your name is: ${name}`);
-  rl.close();
-});
+    if (!process.stdin.isTTY) {
+      process.stdout.write('This important software is now closing\n');
+    }
+    process.exit(0);
+  });
+};
+
+getUsename();
